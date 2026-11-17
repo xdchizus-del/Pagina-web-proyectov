@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A clean, minimal product page for the HUAWEI MateBook D 15.">
+<title>MateBook D 15 — A Smarter Everyday Laptop</title>
+<style>
+:root{--ink:#17211e;--muted:#68736e;--paper:#f6f7f4;--white:#fff;--accent:#b9d8c8;--line:#e4e9e4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,90%);margin:auto}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:.12em;font-size:14px}.logo span{font-weight:400;color:var(--muted)}
+nav{display:flex;gap:28px;font-size:13px;color:var(--muted)}nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:78px 0 86px;min-height:590px}
+.eyebrow{text-transform:uppercase;letter-spacing:.19em;font-size:11px;color:#648574;font-weight:700}
+h1{font-size:clamp(42px,6vw,70px);line-height:1.04;letter-spacing:-.055em;margin:18px 0}
+.lead{max-width:470px;color:var(--muted);font-size:16px}
+.price-row{display:flex;align-items:center;gap:16px;margin:28px 0}.price{font-size:34px;font-weight:750;letter-spacing:-.04em}.price-note{font-size:12px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:4px;background:var(--ink);color:white;font-size:13px;font-weight:650;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-3px);background:#354c42}.visual{position:relative;min-height:390px;display:grid;place-items:center;background:linear-gradient(145deg,#e9eee9,#dce5df);border-radius:8px;overflow:hidden}
+.visual:before,.visual:after{content:"";position:absolute;border:1px solid #ffffff90;border-radius:50%;width:340px;height:340px;animation:orbit 18s linear infinite}.visual:after{width:440px;height:440px;animation-direction:reverse}
+.laptop{position:relative;z-index:2;width:min(82%,460px);filter:drop-shadow(0 24px 18px #17211e25);animation:float 5s ease-in-out infinite}
+.screen{height:245px;background:#18231f;border:9px solid #aeb8b2;border-bottom-width:13px;border-radius:12px 12px 5px 5px;display:grid;place-items:center;overflow:hidden}
+.screen-art{width:100%;height:100%;background:radial-gradient(circle at 65% 30%,#c6e1d1 0 5%,transparent 35%),linear-gradient(135deg,#1b3028,#638a76);display:grid;place-items:center;color:#eff8f1;font-size:42px;font-weight:200;letter-spacing:.1em}
+.base{height:13px;background:linear-gradient(#c8d0cb,#929f97);clip-path:polygon(4% 0,96% 0,100% 100%,0 100%);border-radius:0 0 10px 10px}
+section{padding:78px 0}.section-head{max-width:610px;margin-bottom:36px}.section-head h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.04em;line-height:1.1;margin:10px 0}.section-head p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--white);padding:26px;border:1px solid var(--line);border-radius:6px;transition:transform .25s,box-shadow .25s}.card:hover{transform:translateY(-5px);box-shadow:0 15px 35px #1b30280d}.icon{font-size:23px;margin-bottom:18px}.card h3{font-size:16px;margin:0 0 8px}.card p{font-size:13px;color:var(--muted);margin:0}
+.specs{background:#edf1ed}.spec-list{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}.spec{display:flex;justify-content:space-between;gap:20px;padding:17px 0;border-bottom:1px solid #d8e0d9;font-size:13px}.spec b{font-weight:650}.spec span{color:var(--muted);text-align:right}
+.video-box{background:#18231f;color:white;border-radius:8px;overflow:hidden;padding:28px}.video-top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:20px}.video-top p{color:#b8c5bd;font-size:13px}.video-embed{position:relative;width:100%;aspect-ratio:16/9;background:#0d1511;border-radius:5px;overflow:hidden}.video-embed video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}.video-credit{font-size:11px;color:#b8c5bd;margin:12px 0 0}
+.names-section{background:var(--white);padding:40px;border-radius:8px;border:1px solid var(--line);margin-top:40px}
+.names-section h3{font-size:20px;margin-top:0;margin-bottom:16px;letter-spacing:-.03em}
+.names-form{display:flex;gap:12px;margin-bottom:20px}
+.names-form input{flex:1;padding:12px 16px;border:1px solid var(--line);border-radius:4px;font-size:14px;outline:none;background:var(--paper);color:var(--ink)}
+.names-form input:focus{border-color:var(--muted)}
+.names-list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+.names-list li{background:var(--paper);padding:8px 14px;border-radius:20px;border:1px solid var(--line);font-size:13px;display:flex;align-items:center;gap:8px}
+.offer{background:#e5eee8;text-align:center;border-radius:8px;padding:65px 20px}.offer h2{font-size:clamp(34px,5vw,54px);letter-spacing:-.05em;margin:8px}.offer .price{font-size:48px;margin:12px}.disclaimer{max-width:700px;margin:22px auto 0;color:#66736b;font-size:11px}
+footer{padding:30px 0;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}@keyframes orbit{to{transform:rotate(360deg)}}
+@media(max-width:760px){nav{gap:12px;font-size:11px}.hero{grid-template-columns:1fr;padding:55px 0;gap:35px}.visual{min-height:310px}.screen{height:190px}.grid{grid-template-columns:1fr 1fr}.spec-list{grid-template-columns:1fr}.video-top{display:block}footer{display:block}.names-form{flex-direction:column}}
+@media(max-width:480px){nav a:nth-child(2){display:none}.grid{grid-template-columns:1fr}.visual{min-height:280px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="#">D<span>/</span>15</a>
+  <nav><a href="#features">Features</a><a href="#specs">Specifications</a><a href="#video">Video</a></a><a href="#buy">Offer</a></nav>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="reveal">
+    <div class="eyebrow">HUAWEI MateBook D 15</div>
+    <h1>Made for your everyday.</h1>
+    <p class="lead">A clean, capable laptop concept for study, work and entertainment. Explore the design, key features and configuration details.</p>
+    <div class="price-row"><div class="price">$15</div><div class="price-note">Advertised listing price<br>USD · see seller notice below</div></div>
+    <a class="btn" href="#buy">Explore the offer&nbsp; ↗</a>
+  </div>
+  <div class="visual reveal" aria-label="Stylized illustration of a laptop">
+    <div class="laptop"><div class="screen"><div class="screen-art">HUAWEI</div></div><div class="base"></div></div>
+  </div>
+</section>
+
+<section id="features" class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">Designed around you</div><h2>Simple on the outside.<br>Useful every day.</h2><p>A practical overview of features commonly found across MateBook D 15 versions. Exact features depend on the specific model.</p></div>
+  <div class="grid">
+    <article class="card reveal"><div class="icon">◫</div><h3>15.6-inch display</h3><p>A spacious screen for documents, browsing, online classes and entertainment. Resolution and panel type vary by version.</p></article>
+    <article class="card reveal"><div class="icon">⌁</div><h3>Everyday performance</h3><p>Configurations have been offered with Intel Core or AMD Ryzen processors, depending on model and market.</p></article>
+    <article class="card reveal"><div class="icon">▤</div><h3>SSD storage</h3><p>Solid-state storage options can help with responsive startup and loading. Capacity varies by configuration.</p></article>
+    <article class="card reveal"><div class="icon">◎</div><h3>Clean design</h3><p>A slim, understated look designed to fit into a study or work setup.</p></article>
+    <article class="card reveal"><div class="icon">⌨</div><h3>Comfortable workflow</h3><p>Full-size keyboard and a large touchpad on many versions make everyday navigation straightforward.</p></article>
+    <article class="card reveal"><div class="icon">◉</div><h3>Useful connectivity</h3><p>Ports and wireless capabilities depend on the exact generation. Check the device before purchase.</p></article>
+  </div>
+</section>
+
+<section id="specs" class="specs">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">At a glance</div><h2>Specifications</h2><p>The MateBook D 15 comes in various generations and hardware configurations. These are general details regarding the product family.</p></div>
+    <div class="spec-list reveal">
+      <div class="spec"><b>Product</b><span>HUAWEI MateBook D 15</span></div>
+      <div class="spec"><b>Display</b><span>15.6-inch (varies by version)</span></div>
+      <div class="spec"><b>Processor</b><span>Intel Core / AMD Ryzen options</span></div>
+      <div class="spec"><b>Memory</b><span>Configuration-dependent</span></div>
+      <div class="spec"><b>Storage</b><span>SSD; capacity varies</span></div>
+      <div class="spec"><b>Operating system</b><span>Depends on the unit</span></div>
+      <div class="spec"><b>Camera</b><span>Pop-up keyboard camera on some versions</span></div>
+      <div class="spec"><b>Wireless</b><span>Wi-Fi / Bluetooth; version-dependent</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="video" class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">Take a closer look</div><h2>Product video</h2><p>Watch the embedded local demonstration video covering the Huawei MateBook D15 features, design, and ports.</p></div>
+  <div class="video-box reveal">
+    <div class="video-top"><div><strong>MateBook D 15 — Product demonstration</strong><p>Take a look at an analysis that covers the design, ports, display, keyboard, camera, and performance in daily use.</p></div></div>
+    <div class="video-embed">
+      <video controls preload="metadata">
+        <source src="Videos/Video demostracion.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+    <p class="video-credit">Local product review video.</p>
+  </div>
+</section>
+
+
+
+<section id="buy" class="wrap">
+  <div class="offer reveal">
+    <div class="eyebrow">The advertised offer</div>
+    <h2>Make it yours.</h2>
+    <div class="price">$15 USD</div>
+    <p style="color:#66736b;font-size:13px">Shop during this Black Friday !right now!</p>
+    <a class="btn" href="mailto: seller@example.com?subject=HUAWEI%20MateBook%20D%2015%20inquiry">Contact seller</a>
+    <p class="disclaimer"><strong>Important buyer notice:</strong>Before making a payment, confirm the exact model, its working condition, the processor, RAM, storage capacity, whether a charger is included, the ownership status of the device, and the delivery details. Whenever possible, inspect and test the computer in person. $15 is a ridiculously low price for this device. This page is an academic project, not a verified offer.</p>
+  </div>
+</section>
+</main>
+<footer class="wrap"><span>© 2026 · MateBook D 15 product page concept. Participantes: Enrique Gonzalez Vera. 
+  Lesli Naomi Vivas Broca.
+  Esther Hernandez Ramos.
+  Luis Alexis Ruiz Figueroa. </span><span>Product details vary by configuration. </span></footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Script para agregar nombres interactivamente
+const nameForm = document.getElementById('nameForm');
+const nameInput = document.getElementById('nameInput');
+const namesList = document.getElementById('namesList');
+
+nameForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nameValue = nameInput.value.trim();
+  if(nameValue !== '') {
+    const li = document.createElement('li');
+    li.textContent = nameValue;
+    namesList.appendChild(li);
+    nameInput.value = '';
+  }
+});
+</script>
+</body>
+</html>
